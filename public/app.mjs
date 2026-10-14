@@ -452,11 +452,13 @@ function submit() {
     }
     const n = result.wrong.length || 1;
     sound.play('bad'); sayText = `有 ${n} 处和你的实验证据对不上，已经标红。先读反馈，再改。`; sayTone = 'bad';
-    if ((d.attempts || 0) >= 1) sayText += ' 看一看「再试一次的小提示」。';
+    if ((d.attempts || 0) >= 1) sayText += ' 需要时点「💡提示」。';
     renderExplain(); renderLevelChrome(); renderRetryGuide(); refreshGuide();
   }
 }
 
+let hintOpen = false, hintStage = null;
+function hintKey() { return R.hintSeenKey('lesson6', state.student.id, stage); }
 function renderRetryGuide() {
   let box = $('retry-guide');
   if (!box) {
@@ -467,14 +469,26 @@ function renderRetryGuide() {
     const main = $('level-main') || $('level');
     if (main) main.appendChild(box);
   }
+  if (hintStage !== stage) { hintOpen = false; hintStage = stage; }
   if (screen !== 'level' || !guidanceOn() || canExitStage(stage)) { box.hidden = true; return; }
+  const st = storage(), key = hintKey();
+  if (R.shouldAutoShowHint(st, key)) { hintOpen = true; R.markHintShown(st, key); }
+  box.hidden = false;
+  box.classList.toggle('collapsed', !hintOpen);
+  if (!hintOpen) {
+    box.innerHTML = '<button type="button" class="retry-guide-open" id="retry-guide-open" aria-label="打开提示">💡提示</button>';
+    $('retry-guide-open').onclick = () => { hintOpen = true; renderRetryGuide(); };
+    return;
+  }
   const d = draft();
   const result = d.submitted ? R.assess(stage, d) : null;
   const tags = result && !result.pass ? result.tags : (summaryOf(stage).tagsLatest || summaryOf(stage).tagsFirst || []);
   const g = R.retryGuidance(stage, { ...d, _tags: tags });
-  box.hidden = false;
-  box.innerHTML = `<div class="retry-guide-card"><b>${escape(g.title)}</b><ol>${g.lines.map(l => `<li>${escape(l)}</li>`).join('')}</ol><p class="note">不给标准答案；对照你自己的实验数据再选一次。</p></div>`;
+  box.innerHTML = `<div class="retry-guide-card" role="dialog" aria-label="${escape(g.title)}"><button type="button" class="retry-guide-close" id="retry-guide-close" aria-label="关闭提示" title="关闭（Esc）">✕</button><b>${escape(g.title)}</b><ol>${g.lines.map(l => `<li>${escape(l)}</li>`).join('')}</ol><p class="note">不给标准答案；对照你自己的实验数据再选一次。</p></div>`;
+  $('retry-guide-close').onclick = closeRetryGuide;
 }
+function closeRetryGuide() { hintOpen = false; renderRetryGuide(); const b = $('retry-guide-open'); if (b) b.focus(); }
+document.addEventListener('keydown', e => { const box = $('retry-guide'); if (e.key === 'Escape' && hintOpen && box && !box.hidden) { e.stopPropagation(); closeRetryGuide(); } }, true);
 
 function celebrate(already) {
   const i = R.stageIds.indexOf(stage), last = i === R.stageIds.length - 1, sum = summaryOf(stage), n = starsOf(stage);
