@@ -1,0 +1,14 @@
+body{margin:0;background:#0d1b33;color:#eef4fb;font:16px/1.5 'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}
+.bar{display:flex;gap:16px;align-items:center;padding:10px 18px;background:#13284a}.bar a{color:#ffd166}.bar span{flex:1;text-align:right}
+button{font:inherit;cursor:pointer;border-radius:10px;border:1.5px solid #3a5a7c;background:#1d3a63;color:#fff;padding:6px 14px}
+.card{max-width:760px;margin:24px auto;padding:20px 26px;background:#13284a;border-radius:18px;border:1.5px solid #3a5a7c}
+.go{background:#ffb703;color:#13284a;font-weight:700;font-size:20px;padding:10px 28px;border:0}.go:disabled{opacity:.4}
+kbd{background:#fff;color:#13284a;border-radius:4px;padding:0 6px}
+.scene{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;text-align:center;min-height:200px}
+.sensor,.device{background:#0d1b33;border-radius:16px;padding:14px}.big{font-size:64px}.bit{font-size:44px;font-weight:800;color:#ffd166}
+.op{font-size:22px;font-weight:700;color:#8ecae6}.q{font-size:15px;color:#cfe0ee}
+.timer{height:10px;background:#0d1b33;border-radius:5px;margin:14px 0;overflow:hidden}.timer i{display:block;height:100%;background:#8ecae6;width:100%}
+.keys{display:flex;gap:20px;justify-content:center}.key{font-size:22px;padding:14px 30px}
+.fb{text-align:center;min-height:28px;font-size:18px}.ok{color:#95d5b2}.bad{color:#ff8fa3}
+.lit .big{filter:drop-shadow(0 0 18px #ffd166)}.dark .big{opacity:.35;filter:grayscale(1)}
+table{width:100%;border-collapse:collapse}td,th{padding:4px 8px;border-bottom:1px solid #3a5a7c;text-align:left}

@@ -1,0 +1,17 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>取反闪电站 · 奖励小游戏</title><link rel="stylesheet" href="/game/play.css?v=1"><script src="/game/lamp-core.js?v=1"></script><script type="module" src="/game/play.mjs?v=1"></script></head>
+<body><main id="app">
+<header class="bar"><a href="/" id="back">← 回到校园</a><b>⚡ 取反闪电站</b><span id="hud">第 0/20 题 · 0 分</span><button id="sound" aria-pressed="false">🔇 音效关</button></header>
+<section id="intro" class="card"><h1>取反闪电站</h1>
+<p>校园里的设备都接上了“取反（NOT）”控制：传感器回答 <b>1（是）</b> 或 <b>0（否）</b>，设备要做 <b>相反</b> 的事。</p>
+<ul><li>看到 <b>A = 1</b>，设备输出 <b>NOT A = 0</b>；看到 <b>A = 0</b>，输出 <b>1</b>。</li>
+<li>按 <kbd>F</kbd> 输出 0，按 <kbd>J</kbd> 输出 1（也可以点屏幕上的按钮）。</li>
+<li>共 20 题，限时从 4 秒缩到 1.6 秒；第 15 题起可能出现 <b>NOT NOT A</b>（取反两次）。</li></ul>
+<p id="gate-msg" role="status"></p><button id="start" class="go">开始（空格）</button></section>
+<section id="play" class="card" hidden>
+<div id="scene" class="scene"></div>
+<div class="timer"><i id="timebar"></i></div>
+<div class="keys"><button id="k0" class="key">F · 输出 0</button><button id="k1" class="key">J · 输出 1</button></div>
+<p id="fb" role="status" class="fb"></p></section>
+<section id="done" class="card" hidden></section>
+</main></body></html>

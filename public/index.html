@@ -1,0 +1,80 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>校园开关站 · 开关量的真与假</title><link rel="stylesheet" href="/game.css?v=6"><link rel="stylesheet" href="/l6.css?v=1"><script src="/rules.js?v=6" defer></script><script type="module" src="/app.mjs?v=6"></script></head>
+<body class="game">
+<header id="hud" class="hud" hidden>
+  <button id="hud-avatar" class="hud-avatar" type="button" aria-label="换一个角色"><img id="hud-avatar-img" alt="" width="30" height="40"></button>
+  <span id="identity" class="hud-id"></span>
+  <ol id="hud-progress" class="hud-progress" aria-label="六站进度"></ol>
+  <b id="stars" class="hud-stars" aria-label="证据星" title="证据星：看第一次的独立表现">⭐ 0/18</b>
+  <b id="points" class="hud-points" aria-label="积分">积分 0</b>
+  <small id="sync-status" class="hud-sync" role="status"></small>
+  <span class="hud-right">
+    <button id="sound" class="hud-btn" type="button" aria-label="音效开关">🔇</button>
+    <button id="help" class="hud-btn help" type="button" aria-label="帮助：现在该做什么">?</button>
+    <button id="menu-btn" class="hud-btn" type="button" aria-label="菜单" aria-expanded="false">☰</button>
+  </span>
+  <div id="menu" class="menu" hidden>
+    <button id="trials-btn" type="button">本站实验记录</button>
+    <button id="story-btn" type="button">再看一次本站情境</button>
+    <button id="fresh" type="button">本站重新做</button>
+    <button id="switch" type="button">切换学生</button>
+  </div>
+</header>
+<div id="test-tools" class="test-tools" hidden><b>教师测试 · 自由选站 · 不写入班级数据</b><button id="test-answer">本站标准操作与答案</button><button id="fill-example">载入本站达标示例</button><button id="test-bank">题库答案</button><button id="test-quiz">试做20题</button><button id="test-reward">试玩奖励小游戏</button><button id="test-reset">清空测试状态</button></div>
+<p id="demo-bar" class="demo-bar" hidden>演示模式：可以体验全部地点，记录只留在这个页面，不进入班级数据。</p>
+<section id="test-answer-panel" class="test-answer-panel" hidden></section>
+
+<section id="login" class="screen login-screen" hidden>
+  <div id="login-bg" class="login-bg" aria-hidden="true"></div>
+  <form id="login-form" class="login-card" autocomplete="off">
+    <p class="eyebrow">六年级 · 第6课 开关量的真与假</p>
+    <h1>秋游筹备日<br>校园开关站</h1>
+    <div class="login-step"><h2>① 选班级</h2><div id="class-tiles" class="class-tiles" role="group" aria-label="班级"></div></div>
+    <div class="login-step" id="step-name" hidden><h2>② 点你的名字</h2>
+      <input id="search" class="search" placeholder="输入名字里的一个字，快速查找" aria-label="查找姓名">
+      <div id="name-grid" class="name-grid" role="group" aria-label="姓名"></div>
+      <button id="manual-toggle" type="button" class="link-btn">名单里没有我</button>
+      <div id="manual-box" class="manual-box" hidden><input id="manual-name" maxlength="30" placeholder="写下你的名字" aria-label="手动填写姓名"></div>
+    </div>
+    <div id="same-name" class="same-name" hidden></div>
+    <p id="identity-confirm" class="confirm-line"></p>
+    <button id="login-submit" type="submit" class="go-btn" hidden>确认身份，开始探索 →</button>
+    <p id="login-error" class="error" role="alert"></p>
+    <p class="login-foot">课堂选名，不是密码账户。<a href="/demo">先看看演示（不保存）</a></p>
+  </form>
+</section>
+
+<section id="map" class="screen map-screen" hidden>
+  <div id="map-world" class="map-world"></div>
+  <div class="map-guide"><div id="map-xiaodi" class="xiaodi-mini"></div><p id="map-say" class="bubble-text"></p></div>
+</section>
+
+<section id="level" class="screen level-screen" hidden>
+  <div class="level-bar">
+    <button id="to-map" type="button" class="ghost-btn">← 地图</button>
+    <div class="level-name"><small id="chapter"></small><b id="stage-title"></b></div>
+    <ol id="steps" class="steps" aria-label="本站三步"></ol>
+  </div>
+  <div id="level-main" class="level-main">
+    <div id="scene" class="scene"></div>
+    <div id="controls" class="console"></div>
+    <div id="think-layer" class="layer" hidden></div>
+    <div id="explain-layer" class="layer" hidden></div>
+    <div id="trial-pop" class="trial-pop" hidden></div>
+  </div>
+  <div class="guide-bar">
+    <img id="actor" class="actor" alt="" width="48" height="64">
+    <div class="bubble"><span id="bubble-xiaodi" class="xiaodi-mini"></span><div class="bubble-body"><b id="say-main"></b><span id="say-sub"></span></div></div>
+    <div id="evidence" class="evidence" aria-label="实验证据"></div>
+    <button id="go-explain" type="button" class="go-btn" hidden>说清楚 →</button>
+  </div>
+</section>
+
+<section id="quiz-page" class="screen paper-screen" hidden></section>
+<section id="end-page" class="screen paper-screen" hidden></section>
+
+<div id="coach" class="coach" hidden aria-hidden="true"><span class="coach-text"></span><i class="coach-hand"></i></div>
+<div id="spot" class="spot" hidden></div>
+<div id="celebrate" class="celebrate" hidden></div>
+<div id="toast" class="toast" role="status" hidden></div>
+</body></html>

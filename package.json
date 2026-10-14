@@ -1,0 +1,13 @@
+{
+  "name": "lesson6-switch-station",
+  "version": "1.0.0",
+  "private": true,
+  "description": "六年级第6课 开关量的真与假 · 校园开关站",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "start": "node --no-warnings server.cjs",
+    "test": "node --no-warnings --test tests/*.test.*"
+  }
+}

@@ -1,0 +1,99 @@
+/* 第6课新增场景样式（沿用 game.css 的配色变量） */
+.center{text-align:center}
+.l6-split{flex:1;min-height:0;display:grid;grid-template-columns:1.25fr 1fr;gap:10px}
+.flow-wrap{flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
+.flow-svg{width:100%;max-height:100%;height:auto}
+.flow-svg .f-box{fill:#14263f;stroke:#5c7c9e;stroke-width:3}
+.flow-svg .f-t{fill:#e8f1f7;font-size:20px;font-weight:800}
+.flow-svg .f-v{fill:#ffd36b;font-size:18px;font-weight:700;font-family:'DejaVu Sans Mono',Consolas,monospace}.flow-svg .f-v.small{font-size:14px;fill:#9fb3c8}
+.flow-svg .f-line{stroke:#5c7c9e;stroke-width:4;fill:none}
+.flow-svg .f-lab{fill:#9fd8ff;font-size:18px;font-weight:800}
+.flow-svg.yes .f-in,.flow-svg.no .f-in,.flow-svg.yes .f-judge,.flow-svg.no .f-judge{stroke:#5fd3ff;fill:#173d50}
+.flow-svg.yes .f-yes,.flow-svg.no .f-no{stroke:#ffd36b;stroke-width:6}
+.flow-svg.yes .f-out-yes{fill:#5a2320;stroke:#ff5b4d;stroke-width:5}
+.flow-svg.no .f-out-no{fill:#16402f;stroke:#4cd28a;stroke-width:5}
+.mini-flow{max-width:360px;margin:0 auto 6px;background:#0d1626;border-radius:14px;padding:6px}
+.log-frame{overflow:auto}
+.l6-table{width:100%;border-collapse:collapse;font-size:16px;color:var(--text)}
+.l6-table th{color:var(--muted);font-weight:700;text-align:left;padding:6px 8px;border-bottom:2px solid var(--line)}
+.l6-table td{padding:6px 8px;border-bottom:1px solid #22395a}
+.l6-table tr.alarm td b{color:#ff8a7f}.l6-table tr.none td b{color:#7fe6b0}
+.sound-cards.wrap{flex-wrap:wrap}
+.sound-cards.wrap .sound-card{min-height:50px;padding:8px 16px;font-size:17px}
+/* 控制室 */
+.panel-room{gap:8px;justify-content:space-between}
+.sheet{align-self:center;background:#fffbe9;color:#173d50;border-radius:14px;padding:8px 26px;text-align:center;box-shadow:0 4px 0 #c9b98a}
+.sheet-title{margin:0;font-weight:800;font-size:15px;color:#5c6f7a}
+.sheet-code{margin:2px 0;font:800 44px/1.1 'DejaVu Sans Mono',Consolas,monospace;letter-spacing:22px;padding-left:22px}
+.sheet-legend{margin:0;font-size:13px;color:#5c6f7a}
+.devices{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:6px;border-radius:16px}
+.device{background:#14263f;border:2px solid var(--line);border-radius:16px;padding:8px;display:flex;flex-direction:column;align-items:center;gap:4px}
+.device.on{border-color:#3fc1b5;background:#173d50}
+.dev-art svg{width:72px;height:72px}
+.device b{font-size:15px}
+.dev-switch{min-width:88px;min-height:44px;font-size:17px;font-weight:800;border-radius:22px}
+.dev-switch[aria-pressed=true]{background:#3fc1b5;color:#0b1630}
+.dev-state{font-weight:800;color:var(--amber)}
+.spin{animation:spin 1s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+.type-box{display:flex;align-items:center;gap:10px;font-weight:700}
+.type-box input{font:800 28px 'DejaVu Sans Mono',Consolas,monospace;width:150px;letter-spacing:8px;padding:6px 10px;border-radius:12px;border:2px solid var(--line);background:#0d1626;color:#fff}
+/* 举牌 */
+.vote-hall{gap:6px}
+.crowd{flex:1;min-height:0;display:grid;grid-template-columns:repeat(8,1fr);gap:4px;padding:6px;border-radius:16px;background:linear-gradient(#26304a,#3a2f2a)}
+.kid{background:transparent;border:2px solid transparent;border-radius:12px;padding:0;min-height:0;display:flex;align-items:flex-end;justify-content:center}
+.kid svg{width:100%;max-width:70px;height:auto}
+.kid:hover{border-color:var(--amber)}.kid.counted{opacity:.6}
+.tally{display:flex;gap:12px;align-items:stretch;justify-content:center}
+.tally-box{background:#14263f;border-radius:14px;padding:6px 14px;display:flex;flex-direction:column;align-items:center}
+.tally-box small{color:var(--muted);font-weight:700}
+.tally-box input{width:72px;text-align:center;font:800 28px 'DejaVu Sans Mono',monospace;background:#0d1626;color:#fff;border:2px solid var(--line);border-radius:10px}
+.tally-box.one input{color:#7fe6b0}.tally-box.zero input{color:#ff8a7f}
+.counter-screen{min-width:170px;background:#0d1014;border:3px solid #9fb3bd;border-radius:14px;padding:6px 16px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.counter-screen small{color:#9fd8ff;font-weight:700}.counter-screen b{font-size:30px;color:#ffd36b}
+.counter-screen.go{border-color:#4cd28a}.counter-screen.go b{color:#7fe6b0}
+.counter-screen.nogo{border-color:#ff5b4d}.counter-screen.nogo b{color:#ff8a7f}
+/* 真值 */
+.truth-grid{flex:1;min-height:0;display:grid;grid-template-columns:1.2fr 1fr;gap:12px;align-items:center}
+.campus-svg{width:100%;height:auto;border-radius:14px}
+.truth-list{list-style:none;margin:0;padding:6px;display:flex;flex-direction:column;gap:8px;border-radius:14px}
+.truth-list li{display:flex;justify-content:space-between;align-items:center;gap:8px;background:#14263f;border-radius:12px;padding:8px 10px;font-size:17px;font-weight:700}
+.tf{display:flex;gap:6px}
+.tf-btn{min-width:66px;min-height:42px;font-weight:800;border-radius:12px}
+.tf-btn.t[aria-pressed=true]{background:#4cd28a;color:#0b1630}.tf-btn.f[aria-pressed=true]{background:#ff8a7f;color:#0b1630}
+.self-q{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.big-q{font-size:34px;font-weight:800;margin:0}.self-a{font-size:22px}
+.tf-t{background:#2b6a4f}.tf-f{background:#6a2b2b}
+/* 取反实验室 */
+.part-tabs{display:flex;gap:8px;justify-content:center}
+.part-tabs span{padding:4px 14px;border-radius:999px;background:#14263f;color:var(--muted);font-weight:700}
+.part-tabs span.now{background:var(--amber);color:#173d50}.part-tabs span.done{color:#7fe6b0}
+.machine{flex:1;display:flex;align-items:center;justify-content:center;gap:18px}
+.m-in,.m-out{display:flex;flex-direction:column;align-items:center;gap:4px;background:#14263f;border-radius:16px;padding:10px 20px;min-width:150px}
+.m-in small,.m-out small{color:var(--muted);font-weight:700}
+.bit{font:800 64px/1 'DejaVu Sans Mono',monospace;color:#9fb3c8}.bit.b1{color:#7fe6b0}.bit.b0{color:#ff8a7f}
+.m-box{width:130px;height:130px;border-radius:24px;background:#3a2a5a;border:4px solid #a58ad8;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:48px;font-weight:900;color:#fff}
+.m-box small{font-size:14px;color:#d9ccff}.m-arrow{font-style:normal;font-size:40px;color:#9fd8ff}
+.not-table td{font-size:17px}.not-table tr.bad td{background:#3a1d22}.not-table tr.ok td{background:#163628}
+.chips{display:flex;gap:6px;flex-wrap:wrap;padding:2px;border-radius:12px}
+.pick.small{min-height:38px;padding:2px 12px}
+.pick[aria-pressed=true]{background:var(--amber);color:#173d50}
+.lamp-row{flex:1;min-height:0;display:grid;grid-template-columns:1fr 1.1fr;gap:12px;align-items:center}
+.street-svg{width:100%;height:auto;border-radius:14px}
+.wire-diagram{display:flex;align-items:center;gap:8px;justify-content:center;flex-wrap:wrap}
+.wire-diagram i{font-style:normal;font-size:28px;color:#9fd8ff}
+.w-box{background:#14263f;border:2px solid var(--line);border-radius:14px;padding:10px 12px;text-align:center;font-weight:800}
+.w-box small{color:var(--amber)}.w-box.not-on{background:#3a2a5a;border-color:#a58ad8;font-size:28px}.w-box.w-direct{color:var(--muted)}
+/* 统计器 */
+.counter-shop{gap:8px}
+.say-first{background:#fffbe9;color:#173d50;border-radius:14px;padding:6px 14px;font-weight:700}
+.say-first p{margin:4px 0}
+.counter-machine{flex:1;min-height:0;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:10px;align-items:stretch}
+.cm-in,.cm-calc{background:#14263f;border-radius:14px;padding:8px;display:flex;flex-direction:column;gap:6px;align-items:center}
+.cm-in small,.cm-calc small{color:var(--muted);font-weight:700}
+.digit-stream{display:flex;flex-wrap:wrap;gap:3px;justify-content:center}
+.digit-stream i{font:800 15px 'DejaVu Sans Mono',monospace;font-style:normal;width:20px;text-align:center;border-radius:5px;background:#0d1626;opacity:.55}
+.digit-stream i.d1{color:#7fe6b0}.digit-stream i.d0{color:#ff8a7f}.digit-stream i.in{opacity:1;background:#26476b}
+.cm-calc p{margin:auto 0;font:800 44px 'DejaVu Sans Mono',monospace;display:flex;gap:10px;align-items:center}
+.cm-calc .n1{color:#7fe6b0}.cm-calc .n0{color:#ff8a7f}.cm-calc span{color:var(--amber)}
+@media (max-width:900px){.l6-split,.truth-grid,.lamp-row,.counter-machine{grid-template-columns:1fr}.devices{grid-template-columns:repeat(2,1fr)}.crowd{grid-template-columns:repeat(5,1fr)}}
+@media (prefers-reduced-motion:reduce){.spin{animation:none}}
